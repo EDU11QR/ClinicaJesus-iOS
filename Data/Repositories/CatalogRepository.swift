@@ -1,0 +1,26 @@
+//
+//  CatalogRepository.swift
+//  ClinicaJesusIOS
+//
+//  Created by XCODE on 19/04/26.
+//
+
+import Foundation
+
+final class CatalogRepository: CatalogRepositoryProtocol {
+    private let service: CatalogServiceProtocol
+
+    init(service: CatalogServiceProtocol) {
+        self.service = service
+    }
+
+    func fetchSpecialties() async throws -> [Especialidad] {
+        let dtos = try await service.fetchSpecialties()
+        return dtos.map { EspecialidadMapper.toDomain(from: $0) }
+    }
+
+    func fetchDoctors(by specialtyId: Int) async throws -> [Doctor] {
+        let dtos = try await service.fetchDoctors(by: specialtyId)
+        return dtos.map { DoctorMapper.toDomain(from: $0) }
+    }
+}

@@ -1,0 +1,980 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B7F801CD2F959DB500D51D58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F801CC2F959DB500D51D58 /* AppDelegate.swift */; };
+		B7F801CF2F959DB500D51D58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F801CE2F959DB500D51D58 /* SceneDelegate.swift */; };
+		B7F802322F95A76400D51D58 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802312F95A75600D51D58 /* DependencyContainer.swift */; };
+		B7F802332F95A81A00D51D58 /* SupabaseClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8021C2F959FAD00D51D58 /* SupabaseClientProvider.swift */; };
+		B7F802342F95A82000D51D58 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802222F95A02300D51D58 /* AuthRepository.swift */; };
+		B7F802352F95A82500D51D58 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8021D2F959FC600D51D58 /* AuthService.swift */; };
+		B7F802362F95A82B00D51D58 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802212F95A01400D51D58 /* SignInUseCase.swift */; };
+		B7F802372F95A83000D51D58 /* AuthRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802202F959FFC00D51D58 /* AuthRepositoryProtocol.swift */; };
+		B7F802382F95A83600D51D58 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8021F2F959FED00D51D58 /* LoginViewModel.swift */; };
+		B7F802392F95A83C00D51D58 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8021E2F959FE000D51D58 /* LoginViewController.swift */; };
+		B7F8023A2F95A89400D51D58 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8021B2F959F8F00D51D58 /* AppConfig.swift */; };
+		B7F8023D2F95A9D500D51D58 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = B7F8023C2F95A9D500D51D58 /* Auth */; };
+		B7F8023F2F95A9D500D51D58 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = B7F8023E2F95A9D500D51D58 /* Functions */; };
+		B7F802412F95A9D500D51D58 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = B7F802402F95A9D500D51D58 /* PostgREST */; };
+		B7F802432F95A9D500D51D58 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = B7F802422F95A9D500D51D58 /* Realtime */; };
+		B7F802452F95A9D500D51D58 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = B7F802442F95A9D500D51D58 /* Storage */; };
+		B7F802472F95A9D500D51D58 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = B7F802462F95A9D500D51D58 /* Supabase */; };
+		B7F802492F95AB7300D51D58 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802482F95AB7100D51D58 /* Usuario.swift */; };
+		B7F8024B2F95AB8C00D51D58 /* UsuarioDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8024A2F95AB8A00D51D58 /* UsuarioDTO.swift */; };
+		B7F8024D2F95AB9E00D51D58 /* UsuarioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8024C2F95AB9C00D51D58 /* UsuarioMapper.swift */; };
+		B7F8024F2F95ABC100D51D58 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8024E2F95ABBF00D51D58 /* UserService.swift */; };
+		B7F802532F95ABED00D51D58 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802522F95ABEA00D51D58 /* UserRepositoryProtocol.swift */; };
+		B7F802552F95AC0500D51D58 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802542F95AC0400D51D58 /* UserRepository.swift */; };
+		B7F802572F95AC1900D51D58 /* GetMyProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802562F95AC1700D51D58 /* GetMyProfileUseCase.swift */; };
+		B7F802592F95AC2D00D51D58 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802582F95AC2B00D51D58 /* HomeViewController.swift */; };
+		B7F8025B2F95AD2C00D51D58 /* Especialidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8025A2F95AD2B00D51D58 /* Especialidad.swift */; };
+		B7F8025D2F95AD7D00D51D58 /* EspecialidadDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8025C2F95AD7800D51D58 /* EspecialidadDTO.swift */; };
+		B7F8025F2F95AD9500D51D58 /* EspecialidadMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8025E2F95AD9300D51D58 /* EspecialidadMapper.swift */; };
+		B7F802612F95ADA800D51D58 /* CatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802602F95ADA600D51D58 /* CatalogService.swift */; };
+		B7F802632F95ADCB00D51D58 /* CatalogRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802622F95ADC700D51D58 /* CatalogRepositoryProtocol.swift */; };
+		B7F802652F95ADE600D51D58 /* CatalogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802642F95ADE400D51D58 /* CatalogRepository.swift */; };
+		B7F802672F95ADFA00D51D58 /* GetSpecialtiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802662F95ADF800D51D58 /* GetSpecialtiesUseCase.swift */; };
+		B7F802692F95AE1700D51D58 /* EspecialidadesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802682F95AE1600D51D58 /* EspecialidadesViewModel.swift */; };
+		B7F8026B2F95AE3200D51D58 /* EspecialidadesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8026A2F95AE2F00D51D58 /* EspecialidadesViewController.swift */; };
+		B7F8026D2F95B03F00D51D58 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8026C2F95B03D00D51D58 /* Doctor.swift */; };
+		B7F8026F2F95B07B00D51D58 /* DoctorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8026E2F95B07900D51D58 /* DoctorDTO.swift */; };
+		B7F802712F95B0CC00D51D58 /* DoctorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802702F95B0CA00D51D58 /* DoctorMapper.swift */; };
+		B7F802732F95B17C00D51D58 /* GetDoctorsBySpecialtyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802722F95B17B00D51D58 /* GetDoctorsBySpecialtyUseCase.swift */; };
+		B7F802752F95B18F00D51D58 /* DoctoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802742F95B18E00D51D58 /* DoctoresViewModel.swift */; };
+		B7F802772F95B1A000D51D58 /* DoctoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F802762F95B19D00D51D58 /* DoctoresViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7F801E32F959DB700D51D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7F801C12F959DB500D51D58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7F801C82F959DB500D51D58;
+			remoteInfo = ClinicaJesusIOS;
+		};
+		B7F801ED2F959DB700D51D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7F801C12F959DB500D51D58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7F801C82F959DB500D51D58;
+			remoteInfo = ClinicaJesusIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B7F801C92F959DB500D51D58 /* ClinicaJesusIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClinicaJesusIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F801CC2F959DB500D51D58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7F801CE2F959DB500D51D58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B7F801E22F959DB700D51D58 /* ClinicaJesusIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClinicaJesusIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F801EC2F959DB700D51D58 /* ClinicaJesusIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClinicaJesusIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F8021B2F959F8F00D51D58 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		B7F8021C2F959FAD00D51D58 /* SupabaseClientProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseClientProvider.swift; sourceTree = "<group>"; };
+		B7F8021D2F959FC600D51D58 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B7F8021E2F959FE000D51D58 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B7F8021F2F959FED00D51D58 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B7F802202F959FFC00D51D58 /* AuthRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryProtocol.swift; sourceTree = "<group>"; };
+		B7F802212F95A01400D51D58 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
+		B7F802222F95A02300D51D58 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		B7F802312F95A75600D51D58 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		B7F802482F95AB7100D51D58 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		B7F8024A2F95AB8A00D51D58 /* UsuarioDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioDTO.swift; sourceTree = "<group>"; };
+		B7F8024C2F95AB9C00D51D58 /* UsuarioMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioMapper.swift; sourceTree = "<group>"; };
+		B7F8024E2F95ABBF00D51D58 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B7F802522F95ABEA00D51D58 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		B7F802542F95AC0400D51D58 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		B7F802562F95AC1700D51D58 /* GetMyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyProfileUseCase.swift; sourceTree = "<group>"; };
+		B7F802582F95AC2B00D51D58 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B7F8025A2F95AD2B00D51D58 /* Especialidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Especialidad.swift; sourceTree = "<group>"; };
+		B7F8025C2F95AD7800D51D58 /* EspecialidadDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspecialidadDTO.swift; sourceTree = "<group>"; };
+		B7F8025E2F95AD9300D51D58 /* EspecialidadMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspecialidadMapper.swift; sourceTree = "<group>"; };
+		B7F802602F95ADA600D51D58 /* CatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogService.swift; sourceTree = "<group>"; };
+		B7F802622F95ADC700D51D58 /* CatalogRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogRepositoryProtocol.swift; sourceTree = "<group>"; };
+		B7F802642F95ADE400D51D58 /* CatalogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogRepository.swift; sourceTree = "<group>"; };
+		B7F802662F95ADF800D51D58 /* GetSpecialtiesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSpecialtiesUseCase.swift; sourceTree = "<group>"; };
+		B7F802682F95AE1600D51D58 /* EspecialidadesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspecialidadesViewModel.swift; sourceTree = "<group>"; };
+		B7F8026A2F95AE2F00D51D58 /* EspecialidadesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspecialidadesViewController.swift; sourceTree = "<group>"; };
+		B7F8026C2F95B03D00D51D58 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		B7F8026E2F95B07900D51D58 /* DoctorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDTO.swift; sourceTree = "<group>"; };
+		B7F802702F95B0CA00D51D58 /* DoctorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorMapper.swift; sourceTree = "<group>"; };
+		B7F802722F95B17B00D51D58 /* GetDoctorsBySpecialtyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorsBySpecialtyUseCase.swift; sourceTree = "<group>"; };
+		B7F802742F95B18E00D51D58 /* DoctoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctoresViewModel.swift; sourceTree = "<group>"; };
+		B7F802762F95B19D00D51D58 /* DoctoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctoresViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B7F801F42F959DB700D51D58 /* Exceptions for "ClinicaJesusIOS" folder in "ClinicaJesusIOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B7F801C82F959DB500D51D58 /* ClinicaJesusIOS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B7F801CB2F959DB500D51D58 /* ClinicaJesusIOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B7F801F42F959DB700D51D58 /* Exceptions for "ClinicaJesusIOS" folder in "ClinicaJesusIOS" target */,
+			);
+			path = ClinicaJesusIOS;
+			sourceTree = "<group>";
+		};
+		B7F801E52F959DB700D51D58 /* ClinicaJesusIOSTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ClinicaJesusIOSTests;
+			sourceTree = "<group>";
+		};
+		B7F801EF2F959DB700D51D58 /* ClinicaJesusIOSUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ClinicaJesusIOSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7F801C62F959DB500D51D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7F802412F95A9D500D51D58 /* PostgREST in Frameworks */,
+				B7F8023F2F95A9D500D51D58 /* Functions in Frameworks */,
+				B7F802472F95A9D500D51D58 /* Supabase in Frameworks */,
+				B7F8023D2F95A9D500D51D58 /* Auth in Frameworks */,
+				B7F802452F95A9D500D51D58 /* Storage in Frameworks */,
+				B7F802432F95A9D500D51D58 /* Realtime in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F801DF2F959DB700D51D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F801E92F959DB700D51D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B7F801C02F959DB500D51D58 = {
+			isa = PBXGroup;
+			children = (
+				B7F802052F959E9B00D51D58 /* Resources */,
+				B7F802042F959E9500D51D58 /* Data */,
+				B7F802032F959E8F00D51D58 /* Domain */,
+				B7F802022F959E8100D51D58 /* Presentation */,
+				B7F802012F959E7A00D51D58 /* App */,
+				B7F801CB2F959DB500D51D58 /* ClinicaJesusIOS */,
+				B7F801E52F959DB700D51D58 /* ClinicaJesusIOSTests */,
+				B7F801EF2F959DB700D51D58 /* ClinicaJesusIOSUITests */,
+				B7F8023B2F95A9C300D51D58 /* Frameworks */,
+				B7F801CA2F959DB500D51D58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7F801CA2F959DB500D51D58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7F801C92F959DB500D51D58 /* ClinicaJesusIOS.app */,
+				B7F801E22F959DB700D51D58 /* ClinicaJesusIOSTests.xctest */,
+				B7F801EC2F959DB700D51D58 /* ClinicaJesusIOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7F802012F959E7A00D51D58 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8022F2F95A6DC00D51D58 /* DI */,
+				B7F802062F959EAA00D51D58 /* Config */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B7F802022F959E8100D51D58 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8020F2F959EFB00D51D58 /* Citas */,
+				B7F8020E2F959EF200D51D58 /* Horarios */,
+				B7F8020D2F959EED00D51D58 /* Doctores */,
+				B7F8020C2F959EE300D51D58 /* Especialidades */,
+				B7F8020B2F959EDD00D51D58 /* Home */,
+				B7F802082F959EC200D51D58 /* Auth */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B7F802032F959E8F00D51D58 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802122F959F1700D51D58 /* UseCases */,
+				B7F802112F959F0B00D51D58 /* Repositories */,
+				B7F802102F959F0400D51D58 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B7F802042F959E9500D51D58 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802172F959F4900D51D58 /* Supabase */,
+				B7F802162F959F4000D51D58 /* Mappers */,
+				B7F802152F959F3400D51D58 /* DTOs */,
+				B7F802142F959F2D00D51D58 /* Repositories */,
+				B7F802132F959F2600D51D58 /* Services */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B7F802052F959E9B00D51D58 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802192F959F5E00D51D58 /* Constants */,
+				B7F802182F959F5500D51D58 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B7F802062F959EAA00D51D58 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8021B2F959F8F00D51D58 /* AppConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		B7F802082F959EC200D51D58 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8020A2F959ED100D51D58 /* Register */,
+				B7F802092F959ECB00D51D58 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B7F802092F959ECB00D51D58 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8021F2F959FED00D51D58 /* LoginViewModel.swift */,
+				B7F8021E2F959FE000D51D58 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B7F8020A2F959ED100D51D58 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B7F8020B2F959EDD00D51D58 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802582F95AC2B00D51D58 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B7F8020C2F959EE300D51D58 /* Especialidades */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8026A2F95AE2F00D51D58 /* EspecialidadesViewController.swift */,
+				B7F802682F95AE1600D51D58 /* EspecialidadesViewModel.swift */,
+			);
+			path = Especialidades;
+			sourceTree = "<group>";
+		};
+		B7F8020D2F959EED00D51D58 /* Doctores */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802762F95B19D00D51D58 /* DoctoresViewController.swift */,
+				B7F802742F95B18E00D51D58 /* DoctoresViewModel.swift */,
+			);
+			path = Doctores;
+			sourceTree = "<group>";
+		};
+		B7F8020E2F959EF200D51D58 /* Horarios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Horarios;
+			sourceTree = "<group>";
+		};
+		B7F8020F2F959EFB00D51D58 /* Citas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Citas;
+			sourceTree = "<group>";
+		};
+		B7F802102F959F0400D51D58 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8026C2F95B03D00D51D58 /* Doctor.swift */,
+				B7F8025A2F95AD2B00D51D58 /* Especialidad.swift */,
+				B7F802482F95AB7100D51D58 /* Usuario.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B7F802112F959F0B00D51D58 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802622F95ADC700D51D58 /* CatalogRepositoryProtocol.swift */,
+				B7F802522F95ABEA00D51D58 /* UserRepositoryProtocol.swift */,
+				B7F802202F959FFC00D51D58 /* AuthRepositoryProtocol.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B7F802122F959F1700D51D58 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802722F95B17B00D51D58 /* GetDoctorsBySpecialtyUseCase.swift */,
+				B7F802662F95ADF800D51D58 /* GetSpecialtiesUseCase.swift */,
+				B7F802562F95AC1700D51D58 /* GetMyProfileUseCase.swift */,
+				B7F802212F95A01400D51D58 /* SignInUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B7F802132F959F2600D51D58 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802602F95ADA600D51D58 /* CatalogService.swift */,
+				B7F8024E2F95ABBF00D51D58 /* UserService.swift */,
+				B7F8021D2F959FC600D51D58 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B7F802142F959F2D00D51D58 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802642F95ADE400D51D58 /* CatalogRepository.swift */,
+				B7F802542F95AC0400D51D58 /* UserRepository.swift */,
+				B7F802222F95A02300D51D58 /* AuthRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B7F802152F959F3400D51D58 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8026E2F95B07900D51D58 /* DoctorDTO.swift */,
+				B7F8025C2F95AD7800D51D58 /* EspecialidadDTO.swift */,
+				B7F8024A2F95AB8A00D51D58 /* UsuarioDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		B7F802162F959F4000D51D58 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802702F95B0CA00D51D58 /* DoctorMapper.swift */,
+				B7F8025E2F95AD9300D51D58 /* EspecialidadMapper.swift */,
+				B7F8024C2F95AB9C00D51D58 /* UsuarioMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		B7F802172F959F4900D51D58 /* Supabase */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8021C2F959FAD00D51D58 /* SupabaseClientProvider.swift */,
+			);
+			path = Supabase;
+			sourceTree = "<group>";
+		};
+		B7F802182F959F5500D51D58 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B7F802192F959F5E00D51D58 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B7F8022F2F95A6DC00D51D58 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				B7F802312F95A75600D51D58 /* DependencyContainer.swift */,
+				B7F801CC2F959DB500D51D58 /* AppDelegate.swift */,
+				B7F801CE2F959DB500D51D58 /* SceneDelegate.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		B7F8023B2F95A9C300D51D58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7F801C82F959DB500D51D58 /* ClinicaJesusIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7F801F52F959DB700D51D58 /* Build configuration list for PBXNativeTarget "ClinicaJesusIOS" */;
+			buildPhases = (
+				B7F801C52F959DB500D51D58 /* Sources */,
+				B7F801C62F959DB500D51D58 /* Frameworks */,
+				B7F801C72F959DB500D51D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B7F801CB2F959DB500D51D58 /* ClinicaJesusIOS */,
+			);
+			name = ClinicaJesusIOS;
+			packageProductDependencies = (
+				B7F8023C2F95A9D500D51D58 /* Auth */,
+				B7F8023E2F95A9D500D51D58 /* Functions */,
+				B7F802402F95A9D500D51D58 /* PostgREST */,
+				B7F802422F95A9D500D51D58 /* Realtime */,
+				B7F802442F95A9D500D51D58 /* Storage */,
+				B7F802462F95A9D500D51D58 /* Supabase */,
+			);
+			productName = ClinicaJesusIOS;
+			productReference = B7F801C92F959DB500D51D58 /* ClinicaJesusIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7F801E12F959DB700D51D58 /* ClinicaJesusIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7F801FA2F959DB700D51D58 /* Build configuration list for PBXNativeTarget "ClinicaJesusIOSTests" */;
+			buildPhases = (
+				B7F801DE2F959DB700D51D58 /* Sources */,
+				B7F801DF2F959DB700D51D58 /* Frameworks */,
+				B7F801E02F959DB700D51D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7F801E42F959DB700D51D58 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B7F801E52F959DB700D51D58 /* ClinicaJesusIOSTests */,
+			);
+			name = ClinicaJesusIOSTests;
+			packageProductDependencies = (
+			);
+			productName = ClinicaJesusIOSTests;
+			productReference = B7F801E22F959DB700D51D58 /* ClinicaJesusIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B7F801EB2F959DB700D51D58 /* ClinicaJesusIOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7F801FD2F959DB700D51D58 /* Build configuration list for PBXNativeTarget "ClinicaJesusIOSUITests" */;
+			buildPhases = (
+				B7F801E82F959DB700D51D58 /* Sources */,
+				B7F801E92F959DB700D51D58 /* Frameworks */,
+				B7F801EA2F959DB700D51D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7F801EE2F959DB700D51D58 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B7F801EF2F959DB700D51D58 /* ClinicaJesusIOSUITests */,
+			);
+			name = ClinicaJesusIOSUITests;
+			packageProductDependencies = (
+			);
+			productName = ClinicaJesusIOSUITests;
+			productReference = B7F801EC2F959DB700D51D58 /* ClinicaJesusIOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7F801C12F959DB500D51D58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					B7F801C82F959DB500D51D58 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					B7F801E12F959DB700D51D58 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = B7F801C82F959DB500D51D58;
+					};
+					B7F801EB2F959DB700D51D58 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = B7F801C82F959DB500D51D58;
+					};
+				};
+			};
+			buildConfigurationList = B7F801C42F959DB500D51D58 /* Build configuration list for PBXProject "ClinicaJesusIOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7F801C02F959DB500D51D58;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B7F801CA2F959DB500D51D58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7F801C82F959DB500D51D58 /* ClinicaJesusIOS */,
+				B7F801E12F959DB700D51D58 /* ClinicaJesusIOSTests */,
+				B7F801EB2F959DB700D51D58 /* ClinicaJesusIOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7F801C72F959DB500D51D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F801E02F959DB700D51D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F801EA2F959DB700D51D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7F801C52F959DB500D51D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7F802392F95A83C00D51D58 /* LoginViewController.swift in Sources */,
+				B7F802492F95AB7300D51D58 /* Usuario.swift in Sources */,
+				B7F802322F95A76400D51D58 /* DependencyContainer.swift in Sources */,
+				B7F802382F95A83600D51D58 /* LoginViewModel.swift in Sources */,
+				B7F802772F95B1A000D51D58 /* DoctoresViewController.swift in Sources */,
+				B7F8025B2F95AD2C00D51D58 /* Especialidad.swift in Sources */,
+				B7F802692F95AE1700D51D58 /* EspecialidadesViewModel.swift in Sources */,
+				B7F802592F95AC2D00D51D58 /* HomeViewController.swift in Sources */,
+				B7F8024F2F95ABC100D51D58 /* UserService.swift in Sources */,
+				B7F802712F95B0CC00D51D58 /* DoctorMapper.swift in Sources */,
+				B7F802612F95ADA800D51D58 /* CatalogService.swift in Sources */,
+				B7F802332F95A81A00D51D58 /* SupabaseClientProvider.swift in Sources */,
+				B7F802732F95B17C00D51D58 /* GetDoctorsBySpecialtyUseCase.swift in Sources */,
+				B7F802342F95A82000D51D58 /* AuthRepository.swift in Sources */,
+				B7F8026D2F95B03F00D51D58 /* Doctor.swift in Sources */,
+				B7F801CD2F959DB500D51D58 /* AppDelegate.swift in Sources */,
+				B7F802632F95ADCB00D51D58 /* CatalogRepositoryProtocol.swift in Sources */,
+				B7F801CF2F959DB500D51D58 /* SceneDelegate.swift in Sources */,
+				B7F802372F95A83000D51D58 /* AuthRepositoryProtocol.swift in Sources */,
+				B7F8025D2F95AD7D00D51D58 /* EspecialidadDTO.swift in Sources */,
+				B7F8026B2F95AE3200D51D58 /* EspecialidadesViewController.swift in Sources */,
+				B7F8024D2F95AB9E00D51D58 /* UsuarioMapper.swift in Sources */,
+				B7F8025F2F95AD9500D51D58 /* EspecialidadMapper.swift in Sources */,
+				B7F8024B2F95AB8C00D51D58 /* UsuarioDTO.swift in Sources */,
+				B7F802532F95ABED00D51D58 /* UserRepositoryProtocol.swift in Sources */,
+				B7F802672F95ADFA00D51D58 /* GetSpecialtiesUseCase.swift in Sources */,
+				B7F8023A2F95A89400D51D58 /* AppConfig.swift in Sources */,
+				B7F802572F95AC1900D51D58 /* GetMyProfileUseCase.swift in Sources */,
+				B7F802352F95A82500D51D58 /* AuthService.swift in Sources */,
+				B7F8026F2F95B07B00D51D58 /* DoctorDTO.swift in Sources */,
+				B7F802552F95AC0500D51D58 /* UserRepository.swift in Sources */,
+				B7F802652F95ADE600D51D58 /* CatalogRepository.swift in Sources */,
+				B7F802752F95B18F00D51D58 /* DoctoresViewModel.swift in Sources */,
+				B7F802362F95A82B00D51D58 /* SignInUseCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F801DE2F959DB700D51D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F801E82F959DB700D51D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7F801E42F959DB700D51D58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7F801C82F959DB500D51D58 /* ClinicaJesusIOS */;
+			targetProxy = B7F801E32F959DB700D51D58 /* PBXContainerItemProxy */;
+		};
+		B7F801EE2F959DB700D51D58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7F801C82F959DB500D51D58 /* ClinicaJesusIOS */;
+			targetProxy = B7F801ED2F959DB700D51D58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B7F801F62F959DB700D51D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClinicaJesusIOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ios.ClinicaJesusIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7F801F72F959DB700D51D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClinicaJesusIOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ios.ClinicaJesusIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B7F801F82F959DB700D51D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7F801F92F959DB700D51D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7F801FB2F959DB700D51D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ios.ClinicaJesusIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClinicaJesusIOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClinicaJesusIOS";
+			};
+			name = Debug;
+		};
+		B7F801FC2F959DB700D51D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ios.ClinicaJesusIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClinicaJesusIOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClinicaJesusIOS";
+			};
+			name = Release;
+		};
+		B7F801FE2F959DB700D51D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ios.ClinicaJesusIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClinicaJesusIOS;
+			};
+			name = Debug;
+		};
+		B7F801FF2F959DB700D51D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ios.ClinicaJesusIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClinicaJesusIOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7F801C42F959DB500D51D58 /* Build configuration list for PBXProject "ClinicaJesusIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7F801F82F959DB700D51D58 /* Debug */,
+				B7F801F92F959DB700D51D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7F801F52F959DB700D51D58 /* Build configuration list for PBXNativeTarget "ClinicaJesusIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7F801F62F959DB700D51D58 /* Debug */,
+				B7F801F72F959DB700D51D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7F801FA2F959DB700D51D58 /* Build configuration list for PBXNativeTarget "ClinicaJesusIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7F801FB2F959DB700D51D58 /* Debug */,
+				B7F801FC2F959DB700D51D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7F801FD2F959DB700D51D58 /* Build configuration list for PBXNativeTarget "ClinicaJesusIOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7F801FE2F959DB700D51D58 /* Debug */,
+				B7F801FF2F959DB700D51D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7F8023C2F95A9D500D51D58 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		B7F8023E2F95A9D500D51D58 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		B7F802402F95A9D500D51D58 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		B7F802422F95A9D500D51D58 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		B7F802442F95A9D500D51D58 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		B7F802462F95A9D500D51D58 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F802002F959E6600D51D58 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B7F801C12F959DB500D51D58 /* Project object */;
+}
