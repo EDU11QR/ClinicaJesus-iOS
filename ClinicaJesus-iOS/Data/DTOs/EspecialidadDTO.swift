@@ -11,5 +11,6 @@ struct EspecialidadDTO: Decodable {
     let id: Int
     let nombre: String
     let descripcion: String?
+    let precio: Double?
     let activo: Bool
 }

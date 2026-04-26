@@ -13,6 +13,7 @@ enum EspecialidadMapper {
             id: dto.id,
             nombre: dto.nombre,
             descripcion: dto.descripcion,
+            precio: dto.precio,
             activo: dto.activo
         )
     }

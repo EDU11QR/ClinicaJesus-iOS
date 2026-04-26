@@ -116,7 +116,11 @@ extension DoctoresViewController: UITableViewDataSource, UITableViewDelegate {
         
         var content = cell.defaultContentConfiguration()
         content.text = doctor.nombreCompleto
-        content.secondaryText = doctor.correo
+        content.secondaryText = """
+        \(doctor.especialidadNombre)
+        CMP: \(doctor.cmp ?? "No registrado")
+        \(doctor.biografia ?? "Sin biografía registrada")
+        """
         cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
         
@@ -127,17 +131,8 @@ extension DoctoresViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let doctor = viewModel.doctor(at: indexPath.row)
+        let horariosVC = DependencyContainer.shared.makeHorariosViewController(doctor: doctor)
         
-        let alert = UIAlertController(
-            title: doctor.nombreCompleto,
-            message: """
-            Correo: \(doctor.correo)
-            Teléfono: \(doctor.telefono ?? "No registrado")
-            """,
-            preferredStyle: .alert
-        )
-        
-        alert.addAction(UIAlertAction(title: "Aceptar", style: .default))
-        present(alert, animated: true)
+        navigationController?.pushViewController(horariosVC, animated: true)
     }
 }

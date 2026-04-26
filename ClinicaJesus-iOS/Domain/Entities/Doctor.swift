@@ -12,6 +12,8 @@ struct Doctor {
     let usuarioId: Int
     let especialidadId: Int
     let nombreCompleto: String
-    let correo: String
+    let especialidadNombre: String
+    let cmp: String?
+    let biografia: String?
     let telefono: String?
 }

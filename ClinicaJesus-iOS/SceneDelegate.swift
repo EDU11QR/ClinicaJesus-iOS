@@ -21,8 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        let rootVC = DependencyContainer.shared.makeLoginViewController()
-        let nav = UINavigationController(rootViewController: rootVC)
+        let splashVC = SplashViewController()
+        let nav = UINavigationController(rootViewController: splashVC)
+        
+        //---------
+        splashVC.onFinish = {
+            let loginVC = DependencyContainer.shared.makeLoginViewController()
+            nav.setViewControllers([loginVC], animated: true)
+        }
 
         window.rootViewController = nav
         window.makeKeyAndVisible()

@@ -10,6 +10,7 @@ import UIKit
 final class LoginViewController: UIViewController {
 
     private let viewModel: LoginViewModel
+    private let registerButton = UIButton(type: .system)
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -65,6 +66,10 @@ final class LoginViewController: UIViewController {
     private func setupUI() {
         [titleLabel, emailTextField, passwordTextField, loginButton, activityIndicator].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
+            
+            registerButton.setTitle("Crear nueva cuenta", for: .normal)
+            registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
+            
             view.addSubview($0)
         }
 
@@ -103,8 +108,22 @@ final class LoginViewController: UIViewController {
         }
 
         viewModel.onSuccess = { [weak self] usuario in
-            let homeVC = HomeViewController(usuario: usuario)
-            self?.navigationController?.setViewControllers([homeVC], animated: true)
+            guard let self else { return }
+            
+            let nextVC: UIViewController
+            
+            switch usuario.rol.uppercased() {
+            case "ADMIN":
+                nextVC = DependencyContainer.shared.makeAdminHomeViewController()
+                
+            case "DOCTOR", "PACIENTE":
+                nextVC = HomeViewController(usuario: usuario)
+                
+            default:
+                nextVC = HomeViewController(usuario: usuario)
+            }
+            
+            self.navigationController?.setViewControllers([nextVC], animated: true)
         }
 
         viewModel.onError = { [weak self] message in
@@ -114,9 +133,26 @@ final class LoginViewController: UIViewController {
         }
     }
 
+    @objc private func didTapRegister() {
+        let vc = DependencyContainer.shared.makeRegisterPacienteViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @objc private func didTapLogin() {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
+        
+        if email.isEmpty || password.isEmpty {
+            showAlert("Completa todos los campos")
+            return
+        }
+        
         viewModel.signIn(email: email, password: password)
+    }
+
+    private func showAlert(_ message: String) {
+        let alert = UIAlertController(title: "Atención", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }

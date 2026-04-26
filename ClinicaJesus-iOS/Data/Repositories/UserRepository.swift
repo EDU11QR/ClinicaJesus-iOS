@@ -18,4 +18,25 @@ final class UserRepository: UserRepositoryProtocol {
         let dto = try await service.fetchMyProfile()
         return UsuarioMapper.toDomain(from: dto)
     }
+
+    func adminObtenerUsuarios() async throws -> [Usuario] {
+        let dtos = try await service.adminObtenerUsuarios()
+        return dtos.map { UsuarioMapper.toDomain(from: $0) }
+    }
+
+    func adminCambiarRolUsuario(
+        usuarioId: Int,
+        nuevoRol: String,
+        especialidadId: Int?
+    ) async throws -> String {
+        try await service.adminCambiarRolUsuario(
+            usuarioId: usuarioId,
+            nuevoRol: nuevoRol,
+            especialidadId: especialidadId
+        )
+    }
+
+    func adminDesactivarUsuario(usuarioId: Int) async throws -> String {
+        try await service.adminDesactivarUsuario(usuarioId: usuarioId)
+    }
 }

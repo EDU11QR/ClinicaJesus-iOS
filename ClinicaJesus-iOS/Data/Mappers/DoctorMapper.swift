@@ -10,13 +10,21 @@ import Foundation
 enum DoctorMapper {
     
     static func toDomain(from dto: DoctorDTO) -> Doctor {
-        Doctor(
+        let nombre = dto.usuarios?.nombre ?? "Doctor"
+        let apellido = dto.usuarios?.apellido ?? ""
+        
+        let nombreCompleto = "Dr. \(nombre) \(apellido)"
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return Doctor(
             id: dto.id,
             usuarioId: dto.usuario_id,
             especialidadId: dto.especialidad_id,
-            nombreCompleto: "\(dto.usuarios.nombre) \(dto.usuarios.apellido)",
-            correo: dto.usuarios.correo,
-            telefono: dto.usuarios.telefono
+            nombreCompleto: nombreCompleto,
+            especialidadNombre: dto.especialidades?.nombre ?? "Especialidad no registrada",
+            cmp: dto.cmp,
+            biografia: dto.biografia,
+            telefono: dto.usuarios?.telefono
         )
     }
 }

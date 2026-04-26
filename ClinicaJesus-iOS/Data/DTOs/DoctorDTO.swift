@@ -11,13 +11,20 @@ struct DoctorDTO: Decodable {
     let id: Int
     let usuario_id: Int
     let especialidad_id: Int
-    let usuarios: UsuarioDoctorDTO
+    let cmp: String?
+    let biografia: String?
+    let usuarios: UsuarioDoctorDTO?
+    let especialidades: EspecialidadDoctorDTO?
 }
 
 struct UsuarioDoctorDTO: Decodable {
     let id: Int
-    let nombre: String
-    let apellido: String
-    let correo: String
+    let nombre: String?
+    let apellido: String?
     let telefono: String?
+}
+
+struct EspecialidadDoctorDTO: Decodable {
+    let id: Int
+    let nombre: String?
 }
