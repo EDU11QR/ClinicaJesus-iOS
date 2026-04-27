@@ -71,4 +71,27 @@ final class CatalogRepository: CatalogRepositoryProtocol {
             activo: activo
         )
     }
+    
+    //-------------DOCTOR
+    
+    func adminObtenerDoctores() async throws -> [AdminDoctor] {
+        let dtos = try await service.adminObtenerDoctores()
+        return dtos.map { AdminDoctorMapper.toDomain(from: $0) }
+    }
+
+    func adminEditarDoctor(
+        doctorId: Int,
+        cmp: String,
+        especialidadId: Int,
+        activo: Bool
+    ) async throws -> String {
+        try await service.adminEditarDoctor(
+            doctorId: doctorId,
+            cmp: cmp,
+            especialidadId: especialidadId,
+            activo: activo
+        )
+    }
+    
+    
 }

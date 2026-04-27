@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE01F4FE2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F4FD2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift */; };
+		AE01F5002F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F4FF2F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift */; };
+		AE01F5022F9EC73800670A6F /* AdminDoctorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F5012F9EC73800670A6F /* AdminDoctorDTO.swift */; };
+		AE01F5042F9EC76A00670A6F /* AdminDoctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F5032F9EC76A00670A6F /* AdminDoctor.swift */; };
+		AE01F5062F9EC78100670A6F /* AdminDoctorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F5052F9EC78100670A6F /* AdminDoctorMapper.swift */; };
+		AE01F5082F9EC89E00670A6F /* AdminObtenerDoctoresUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F5072F9EC89E00670A6F /* AdminObtenerDoctoresUseCase.swift */; };
+		AE01F50A2F9EC8B200670A6F /* AdminEditarDoctorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F5092F9EC8B200670A6F /* AdminEditarDoctorUseCase.swift */; };
 		AE0AEF5E2F9D7F7C0069BCA2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AEF5D2F9D7F7C0069BCA2 /* SplashViewController.swift */; };
 		AE0AEF602F9D7F9D0069BCA2 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AEF5F2F9D7F9D0069BCA2 /* SplashViewModel.swift */; };
 		AE0AEF642F9D890C0069BCA2 /* AdminCambiarRolUsuarioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AEF632F9D890C0069BCA2 /* AdminCambiarRolUsuarioUseCase.swift */; };
@@ -112,6 +119,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE01F4FD2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditarUsuarioUseCase.swift; sourceTree = "<group>"; };
+		AE01F4FF2F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCambiarEstadoUsuarioUseCase.swift; sourceTree = "<group>"; };
+		AE01F5012F9EC73800670A6F /* AdminDoctorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDoctorDTO.swift; sourceTree = "<group>"; };
+		AE01F5032F9EC76A00670A6F /* AdminDoctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDoctor.swift; sourceTree = "<group>"; };
+		AE01F5052F9EC78100670A6F /* AdminDoctorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDoctorMapper.swift; sourceTree = "<group>"; };
+		AE01F5072F9EC89E00670A6F /* AdminObtenerDoctoresUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminObtenerDoctoresUseCase.swift; sourceTree = "<group>"; };
+		AE01F5092F9EC8B200670A6F /* AdminEditarDoctorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditarDoctorUseCase.swift; sourceTree = "<group>"; };
 		AE0AEF5D2F9D7F7C0069BCA2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AE0AEF5F2F9D7F9D0069BCA2 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		AE0AEF632F9D890C0069BCA2 /* AdminCambiarRolUsuarioUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCambiarRolUsuarioUseCase.swift; sourceTree = "<group>"; };
@@ -269,29 +283,6 @@
 			path = Especialidades;
 			sourceTree = "<group>";
 		};
-		AE82EBEE2F97236D00B52676 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				AE82EBEF2F97236D00B52676 /* Constants */,
-				AE82EBF02F97236D00B52676 /* Assets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		AE82EBEF2F97236D00B52676 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
-		AE82EBF02F97236D00B52676 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		AE82EBF12F97239F00B52676 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +363,10 @@
 				AE56B7582F9DA1A50075EC19 /* AdminCrearEspecialidadUseCase.swift */,
 				AE56B75A2F9DA1BB0075EC19 /* AdminEditarEspecialidadUseCase.swift */,
 				AE56B7632F9DAD9A0075EC19 /* GetCurrentUserSessionUseCase.swift */,
+				AE01F4FD2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift */,
+				AE01F4FF2F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift */,
+				AE01F5072F9EC89E00670A6F /* AdminObtenerDoctoresUseCase.swift */,
+				AE01F5092F9EC8B200670A6F /* AdminEditarDoctorUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -387,6 +382,7 @@
 				AE4D32552F9C585E007BDC77 /* CitaDoctor.swift */,
 				AE4D32692F9C66A9007BDC77 /* HorarioDoctor.swift */,
 				AE4D32792F9C6D76007BDC77 /* RegisterPacienteRequest.swift */,
+				AE01F5032F9EC76A00670A6F /* AdminDoctor.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -432,6 +428,7 @@
 				AE4D32492F9C516C007BDC77 /* AppointmentDTO.swift */,
 				AE4D32572F9C588D007BDC77 /* CitaDoctorDTO.swift */,
 				AE4D326B2F9C66C1007BDC77 /* HorarioDoctorDTO.swift */,
+				AE01F5012F9EC73800670A6F /* AdminDoctorDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -446,6 +443,7 @@
 				AE4D324B2F9C519B007BDC77 /* AppointmentMapper.swift */,
 				AE4D32592F9C58AB007BDC77 /* CitaDoctorMapper.swift */,
 				AE4D326D2F9C66DE007BDC77 /* HorarioDoctorMapper.swift */,
+				AE01F5052F9EC78100670A6F /* AdminDoctorMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -581,7 +579,6 @@
 		AEF45E7F2F96FC4A00D80EDF /* ClinicaJesus-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				AE82EBEE2F97236D00B52676 /* Resources */,
 				AED1CDFB2F97245C00B0F216 /* Presentation */,
 				AED1CDDB2F97245700B0F216 /* Data */,
 				AED1CDC32F97243300B0F216 /* Domain */,
@@ -688,12 +685,14 @@
 				AED03FB62F9D95E400FD9D38 /* AdminMenuButton.swift in Sources */,
 				AE4D326E2F9C66DE007BDC77 /* HorarioDoctorMapper.swift in Sources */,
 				AE4D323C2F9C4BCC007BDC77 /* ConfirmarCitaViewModel.swift in Sources */,
+				AE01F5062F9EC78100670A6F /* AdminDoctorMapper.swift in Sources */,
 				AE4D324E2F9C5236007BDC77 /* GetMyAppointmentsUseCase.swift in Sources */,
 				AED1CDF72F97245700B0F216 /* UsuarioMapper.swift in Sources */,
 				AEF45E852F96FC4A00D80EDF /* ViewController.swift in Sources */,
 				AE4D32382F9C4168007BDC77 /* HorariosViewModel.swift in Sources */,
 				AE82EBF72F97239F00B52676 /* AppConfig.swift in Sources */,
 				AE4D326C2F9C66C1007BDC77 /* HorarioDoctorDTO.swift in Sources */,
+				AE01F4FE2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift in Sources */,
 				AE0AEF6E2F9D8AF40069BCA2 /* AdminUsuarioCell.swift in Sources */,
 				AED1CDD82F97243300B0F216 /* Especialidad.swift in Sources */,
 				AE4D32362F9C4113007BDC77 /* GetAvailableSchedulesUseCase.swift in Sources */,
@@ -712,6 +711,7 @@
 				AE4D327C2F9C6E11007BDC77 /* SignUpPacienteUseCase.swift in Sources */,
 				AED1CDD22F97243300B0F216 /* CatalogRepositoryProtocol.swift in Sources */,
 				AED1CDD92F97243300B0F216 /* Doctor.swift in Sources */,
+				AE01F50A2F9EC8B200670A6F /* AdminEditarDoctorUseCase.swift in Sources */,
 				AED1CE0D2F97245C00B0F216 /* LoginViewController.swift in Sources */,
 				AE4D32522F9C528F007BDC77 /* MisCitasViewController.swift in Sources */,
 				AE56B7602F9DA3170075EC19 /* AdminEspecialidadesViewController.swift in Sources */,
@@ -729,9 +729,11 @@
 				AE56B7642F9DAD9A0075EC19 /* GetCurrentUserSessionUseCase.swift in Sources */,
 				AE4D32342F9C403E007BDC77 /* HorarioDisponibleMapper.swift in Sources */,
 				AE4D32482F9C512F007BDC77 /* Appointment.swift in Sources */,
+				AE01F5002F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift in Sources */,
 				AED1CDF22F97245700B0F216 /* EspecialidadDTO.swift in Sources */,
 				AED1CE0E2F97245C00B0F216 /* EspecialidadesViewModel.swift in Sources */,
 				AE4D327A2F9C6D76007BDC77 /* RegisterPacienteRequest.swift in Sources */,
+				AE01F5082F9EC89E00670A6F /* AdminObtenerDoctoresUseCase.swift in Sources */,
 				AE0AEF662F9D89470069BCA2 /* AdminDesactivarUsuarioUseCase.swift in Sources */,
 				AE56B75E2F9DA29A0075EC19 /* AdminEspecialidadesViewModel.swift in Sources */,
 				AE4D32442F9C4E35007BDC77 /* AppointmentRepository.swift in Sources */,
@@ -751,6 +753,7 @@
 				AED1CDD52F97243300B0F216 /* GetMyProfileUseCase.swift in Sources */,
 				AED1CDF92F97245700B0F216 /* CatalogService.swift in Sources */,
 				AE82EBF62F97239F00B52676 /* DependencyContainer.swift in Sources */,
+				AE01F5022F9EC73800670A6F /* AdminDoctorDTO.swift in Sources */,
 				AED1CE0F2F97245C00B0F216 /* EspecialidadesViewController.swift in Sources */,
 				AED1CDEF2F97245700B0F216 /* AuthRepository.swift in Sources */,
 				AE0AEF6C2F9D8A9B0069BCA2 /* AdminUsuariosViewController.swift in Sources */,
@@ -769,6 +772,7 @@
 				AE4D32762F9C67B4007BDC77 /* HorariosDoctorViewController.swift in Sources */,
 				AE4D32602F9C5941007BDC77 /* CitasDoctorViewController.swift in Sources */,
 				AED1CE112F97245C00B0F216 /* DoctoresViewModel.swift in Sources */,
+				AE01F5042F9EC76A00670A6F /* AdminDoctor.swift in Sources */,
 				AE4D32642F9C5E85007BDC77 /* CrearHorarioDoctorUseCase.swift in Sources */,
 				AED1CDFA2F97245700B0F216 /* AuthService.swift in Sources */,
 				AE4D323A2F9C4196007BDC77 /* HorariosViewController.swift in Sources */,

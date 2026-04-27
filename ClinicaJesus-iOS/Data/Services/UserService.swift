@@ -18,6 +18,22 @@ protocol UserServiceProtocol {
         especialidadId: Int?
     ) async throws -> String
     func adminDesactivarUsuario(usuarioId: Int) async throws -> String
+    
+    //------------AdminEditarUsuario
+    func adminEditarUsuario(
+            usuarioId: Int,
+            nombre: String,
+            apellido: String,
+            correo: String,
+            telefono: String
+        ) async throws -> String
+    
+    //------Cambiar estado de usuario
+    func adminCambiarEstadoUsuario(
+        usuarioId: Int,
+        activo: Bool
+    ) async throws -> String
+
 }
 
 final class UserService: UserServiceProtocol {
@@ -77,6 +93,52 @@ final class UserService: UserServiceProtocol {
 
         return response
     }
+    
+    //--------------------
+    
+    func adminEditarUsuario(
+        usuarioId: Int,
+        nombre: String,
+        apellido: String,
+        correo: String,
+        telefono: String
+    ) async throws -> String {
+        
+        let params = AdminEditarUsuarioParams(
+            p_usuario_id: usuarioId,
+            p_nombre: nombre,
+            p_apellido: apellido,
+            p_correo: correo,
+            p_telefono: telefono
+        )
+        
+        let response: String = try await client
+            .rpc("admin_editar_usuario", params: params)
+            .execute()
+            .value
+        
+        return response
+    }
+    
+    //-------- Func para Cambiar estado de usuario
+    func adminCambiarEstadoUsuario(
+        usuarioId: Int,
+        activo: Bool
+    ) async throws -> String {
+        
+        let params = AdminCambiarEstadoUsuarioParams(
+            p_usuario_id: usuarioId,
+            p_activo: activo
+        )
+        
+        let response: String = try await client
+            .rpc("admin_cambiar_estado_usuario", params: params)
+            .execute()
+            .value
+        
+        return response
+    }
+    
 }
 
 struct AdminCambiarRolUsuarioParams: Encodable {
@@ -87,4 +149,19 @@ struct AdminCambiarRolUsuarioParams: Encodable {
 
 struct AdminDesactivarUsuarioParams: Encodable {
     let p_usuario_id: Int
+}
+
+//-----------Struct para editar usuario desde la vista Admin
+struct AdminEditarUsuarioParams: Encodable {
+    let p_usuario_id: Int
+    let p_nombre: String
+    let p_apellido: String
+    let p_correo: String
+    let p_telefono: String
+}
+
+//--------- Struct para Cambiar estado de usuario
+struct AdminCambiarEstadoUsuarioParams: Encodable {
+    let p_usuario_id: Int
+    let p_activo: Bool
 }

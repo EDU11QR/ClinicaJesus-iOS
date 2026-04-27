@@ -39,4 +39,35 @@ final class UserRepository: UserRepositoryProtocol {
     func adminDesactivarUsuario(usuarioId: Int) async throws -> String {
         try await service.adminDesactivarUsuario(usuarioId: usuarioId)
     }
+    
+    //--------------------Editar usuario desde admin
+    
+    func adminEditarUsuario(
+        usuarioId: Int,
+        nombre: String,
+        apellido: String,
+        correo: String,
+        telefono: String
+    ) async throws -> String {
+        
+        try await service.adminEditarUsuario(
+            usuarioId: usuarioId,
+            nombre: nombre,
+            apellido: apellido,
+            correo: correo,
+            telefono: telefono
+        )
+    }
+    
+    //--------func para cambiar estado de usuario desde admin
+    
+    func adminCambiarEstadoUsuario(
+        usuarioId: Int,
+        activo: Bool
+    ) async throws -> String {
+        try await service.adminCambiarEstadoUsuario(
+            usuarioId: usuarioId,
+            activo: activo
+        )
+    }
 }

@@ -121,7 +121,7 @@ final class RegisterPacienteViewController: UIViewController {
         viewModel.onLoadingChanged = { [weak self] isLoading in
             self?.registerButton.isEnabled = !isLoading
             self?.registerButton.setTitle(
-                isLoading ? "Registrando..." : "Registrarme",
+                isLoading ? "Registrando..." : (self?.isAdminMode == true ? "Registrar Usuario" : "Registrarme"),
                 for: .normal
             )
         }

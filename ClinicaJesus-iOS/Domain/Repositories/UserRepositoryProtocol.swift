@@ -17,4 +17,20 @@ protocol UserRepositoryProtocol {
         especialidadId: Int?
     ) async throws -> String
     func adminDesactivarUsuario(usuarioId: Int) async throws -> String
+    
+    //----------------Editar usuario desde admin
+    func adminEditarUsuario(
+            usuarioId: Int,
+            nombre: String,
+            apellido: String,
+            correo: String,
+            telefono: String
+        ) async throws -> String
+    
+    //--------Func para cambiar estado de usuario en admin
+    func adminCambiarEstadoUsuario(
+        usuarioId: Int,
+        activo: Bool
+    ) async throws -> String
+    
 }

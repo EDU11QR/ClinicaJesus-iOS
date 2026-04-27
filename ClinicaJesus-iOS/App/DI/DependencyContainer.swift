@@ -55,6 +55,10 @@ final class DependencyContainer {
     lazy var adminObtenerUsuariosUseCase = AdminObtenerUsuariosUseCase(repository: userRepository)
     lazy var adminCambiarRolUsuarioUseCase = AdminCambiarRolUsuarioUseCase(repository: userRepository)
     lazy var adminDesactivarUsuarioUseCase = AdminDesactivarUsuarioUseCase(repository: userRepository)
+    lazy var adminEditarUsuarioUseCase =
+    AdminEditarUsuarioUseCase(repository: userRepository)
+    lazy var adminCambiarEstadoUsuarioUseCase =
+    AdminCambiarEstadoUsuarioUseCase(repository: userRepository)
     
     // conectamos Usecases para especialidades
     
@@ -70,6 +74,14 @@ final class DependencyContainer {
     //-------------
     lazy var getCurrentUserSessionUseCase =
     GetCurrentUserSessionUseCase(repository: authRepository)
+    
+    
+    // DOCTORES
+    lazy var adminObtenerDoctoresUseCase =
+    AdminObtenerDoctoresUseCase(repository: catalogRepository)
+
+    lazy var adminEditarDoctorUseCase =
+    AdminEditarDoctorUseCase(repository: catalogRepository)
     
     // MARK: - Factories
     
@@ -166,7 +178,10 @@ final class DependencyContainer {
             adminObtenerUsuariosUseCase: adminObtenerUsuariosUseCase,
             adminCambiarRolUsuarioUseCase: adminCambiarRolUsuarioUseCase,
             adminDesactivarUsuarioUseCase: adminDesactivarUsuarioUseCase,
-            getSpecialtiesUseCase: getSpecialtiesUseCase
+            adminEditarUsuarioUseCase: adminEditarUsuarioUseCase,
+            adminCambiarEstadoUsuarioUseCase: adminCambiarEstadoUsuarioUseCase,
+            getSpecialtiesUseCase: getSpecialtiesUseCase,
+            getMyProfileUseCase: getMyProfileUseCase
         )
         
         return AdminUsuariosViewController(viewModel: viewModel)

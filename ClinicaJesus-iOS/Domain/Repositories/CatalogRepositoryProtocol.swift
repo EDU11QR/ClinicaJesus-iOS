@@ -23,4 +23,15 @@ protocol CatalogRepositoryProtocol {
         precio: Double,
         activo: Bool
     ) async throws -> String
+    
+    
+    //---ADMIN-DOCTOR
+    func adminObtenerDoctores() async throws -> [AdminDoctor]
+
+    func adminEditarDoctor(
+        doctorId: Int,
+        cmp: String,
+        especialidadId: Int,
+        activo: Bool
+    ) async throws -> String
 }

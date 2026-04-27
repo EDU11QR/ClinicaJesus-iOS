@@ -20,13 +20,16 @@ final class AuthService: AuthServiceProtocol {
     private let client = SupabaseClientProvider.shared
     
     func signUpPaciente(request: RegisterPacienteRequest) async throws -> Int {
-        _ = try await client.auth.signUp(
+        let authResponse = try await client.auth.signUp(
             email: request.correo,
             password: request.password
         )
-        
+
+        let authUserId = authResponse.user.id
+
         let response: Int = try await client
             .rpc("registrar_paciente", params: [
+                "p_auth_user_id": authUserId.uuidString,
                 "p_nombre": request.nombre,
                 "p_apellido": request.apellido,
                 "p_correo": request.correo,
@@ -34,10 +37,11 @@ final class AuthService: AuthServiceProtocol {
             ])
             .execute()
             .value
-        
+
         return response
     }
-
+    
+    
     func signIn(email: String, password: String) async throws {
         try await client.auth.signIn(
             email: email,

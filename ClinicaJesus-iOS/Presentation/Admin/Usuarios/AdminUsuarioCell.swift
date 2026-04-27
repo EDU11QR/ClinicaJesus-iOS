@@ -56,12 +56,21 @@ final class AdminUsuarioCell: UITableViewCell {
         
         roleButton.titleLabel?.font = .boldSystemFont(ofSize: 12)
         roleButton.layer.cornerRadius = 12
-        roleButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        roleButton.configuration = .plain()
+        roleButton.configuration?.contentInsets = NSDirectionalEdgeInsets(
+            top: 6,
+            leading: 12,
+            bottom: 6,
+            trailing: 12
+        )
         roleButton.addTarget(self, action: #selector(didTapRole), for: .touchUpInside)
         
         deactivateButton.setImage(UIImage(systemName: "person.crop.circle.badge.xmark"), for: .normal)
         deactivateButton.tintColor = .systemRed
         deactivateButton.addTarget(self, action: #selector(didTapDeactivate), for: .touchUpInside)
+        
+        deactivateButton.isUserInteractionEnabled = true
+        contentView.isUserInteractionEnabled = true
         
         [initialsLabel, nameLabel, usernameLabel, emailLabel, phoneLabel, roleButton, deactivateButton].forEach {
             contentView.addSubview($0)
@@ -98,6 +107,9 @@ final class AdminUsuarioCell: UITableViewCell {
             deactivateButton.widthAnchor.constraint(equalToConstant: 34),
             deactivateButton.heightAnchor.constraint(equalToConstant: 34)
         ])
+        
+        contentView.bringSubviewToFront(deactivateButton)
+        
     }
     
     func configure(usuario: Usuario) {
@@ -113,6 +125,10 @@ final class AdminUsuarioCell: UITableViewCell {
         
         roleButton.setTitle(usuario.rol, for: .normal)
         
+        //------BLOQUEA INTERACCION CUANDO NO CORRESPONDE
+        roleButton.isEnabled = usuario.activo
+        roleButton.alpha = usuario.activo ? 1.0 : 0.5
+        
         switch usuario.rol {
         case "ADMIN":
             roleButton.backgroundColor = UIColor.systemRed.withAlphaComponent(0.15)
@@ -125,7 +141,24 @@ final class AdminUsuarioCell: UITableViewCell {
             roleButton.setTitleColor(.darkGray, for: .normal)
         }
         
-        deactivateButton.isHidden = usuario.activo == false
+        if usuario.rol == "DOCTOR" {
+            roleButton.layer.borderWidth = 1
+            roleButton.layer.borderColor = UIColor.systemTeal.cgColor
+        } else if usuario.rol == "ADMIN" {
+            roleButton.layer.borderWidth = 1
+            roleButton.layer.borderColor = UIColor.systemRed.cgColor
+        } else {
+            roleButton.layer.borderWidth = 0
+        }
+        
+        deactivateButton.isHidden = false
+        deactivateButton.isEnabled = true
+        deactivateButton.alpha = 1.0
+        deactivateButton.tintColor = usuario.activo == true ? .systemRed : .systemGreen
+        deactivateButton.setImage(
+            UIImage(systemName: usuario.activo == true ? "person.crop.circle.badge.xmark" : "person.crop.circle.badge.checkmark"),
+            for: .normal
+        )
     }
     
     @objc private func didTapRole() {

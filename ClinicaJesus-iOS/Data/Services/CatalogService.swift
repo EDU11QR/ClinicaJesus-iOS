@@ -13,7 +13,7 @@ protocol CatalogServiceProtocol {
     func fetchDoctorsBySpecialty(specialtyId: Int) async throws -> [DoctorDTO]
     func fetchAvailableSchedules(doctorId: Int, fecha: String) async throws -> [HorarioDisponibleDTO]
     
-    //----------
+    //----------ADMIN
     func adminObtenerEspecialidades() async throws -> [EspecialidadDTO]
     func adminCrearEspecialidad(nombre: String, descripcion: String, precio: Double) async throws -> String
 
@@ -24,6 +24,17 @@ protocol CatalogServiceProtocol {
         precio: Double,
         activo: Bool
     ) async throws -> String
+    
+    //----------DOCTOR
+    func adminObtenerDoctores() async throws -> [AdminDoctorDTO]
+
+    func adminEditarDoctor(
+        doctorId: Int,
+        cmp: String,
+        especialidadId: Int,
+        activo: Bool
+    ) async throws -> String
+    
 }
 
 final class CatalogService: CatalogServiceProtocol {
@@ -64,6 +75,37 @@ final class CatalogService: CatalogServiceProtocol {
                 """)
             .eq("especialidad_id", value: specialtyId)
             .eq("activo", value: true)
+            .execute()
+            .value
+        
+        return response
+    }
+    
+    func adminObtenerDoctores() async throws -> [AdminDoctorDTO] {
+        let response: [AdminDoctorDTO] = try await client
+            .rpc("admin_obtener_doctores")
+            .execute()
+            .value
+        
+        return response
+    }
+
+    func adminEditarDoctor(
+        doctorId: Int,
+        cmp: String,
+        especialidadId: Int,
+        activo: Bool
+    ) async throws -> String {
+        
+        let params = AdminEditarDoctorParams(
+            p_doctor_id: doctorId,
+            p_cmp: cmp,
+            p_especialidad_id: especialidadId,
+            p_activo: activo
+        )
+        
+        let response: String = try await client
+            .rpc("admin_editar_doctor", params: params)
             .execute()
             .value
         
@@ -147,5 +189,14 @@ struct AdminEditarEspecialidadParams: Encodable {
     let p_nombre: String
     let p_descripcion: String
     let p_precio: Double
+    let p_activo: Bool
+}
+
+//--------DOCTOR
+
+struct AdminEditarDoctorParams: Encodable {
+    let p_doctor_id: Int
+    let p_cmp: String
+    let p_especialidad_id: Int
     let p_activo: Bool
 }
