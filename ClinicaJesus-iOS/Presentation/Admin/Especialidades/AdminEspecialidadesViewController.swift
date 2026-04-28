@@ -102,37 +102,47 @@ final class AdminEspecialidadesViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
-            newButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            newButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            newButton.widthAnchor.constraint(equalToConstant: 175),
-            newButton.heightAnchor.constraint(equalToConstant: 44),
+            // TITLE
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
+            // SUBTITLE
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
-            cardView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 24),
+            // BUTTON (BAJA DEBAJO, NO AL COSTADO)
+            newButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 14),
+            newButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            newButton.widthAnchor.constraint(equalToConstant: 210),
+            newButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            // CARD
+            cardView.topAnchor.constraint(equalTo: newButton.bottomAnchor, constant: 20),
             cardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             cardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             
+            // COUNT
             countLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),
             countLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16),
             countLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
             
+            // SEARCH
             searchTextField.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: 16),
             searchTextField.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 20),
             searchTextField.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -20),
             searchTextField.heightAnchor.constraint(equalToConstant: 42),
             
+            // TABLE
             tableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 16),
             tableView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 12),
             tableView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -12),
             tableView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -12),
             
+            // LOADING
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])

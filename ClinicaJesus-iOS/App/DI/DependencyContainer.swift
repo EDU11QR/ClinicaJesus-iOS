@@ -172,6 +172,10 @@ final class DependencyContainer {
         return HorariosDoctorViewController(viewModel: viewModel)
     }
     
+    func makePacienteContactoViewController() -> PacienteContactoViewController {
+        return PacienteContactoViewController()
+    }
+    
     //------------------ADMIN-------
     func makeAdminUsuariosViewController() -> AdminUsuariosViewController {
         let viewModel = AdminUsuariosViewModel(
