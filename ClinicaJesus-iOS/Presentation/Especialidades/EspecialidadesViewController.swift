@@ -119,6 +119,8 @@ extension EspecialidadesViewController: UITableViewDataSource, UITableViewDelega
 }
 */
 
+  //anthony@gmail.com   123456
+  //paciente1@gmail.com 12345
 
 import UIKit
 

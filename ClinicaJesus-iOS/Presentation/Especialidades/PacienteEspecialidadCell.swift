@@ -74,3 +74,4 @@ final class PacienteEspecialidadCell: UITableViewCell {
         precioLabel.text = "S/ \(item.precio ?? 0)"
     }
 }
+

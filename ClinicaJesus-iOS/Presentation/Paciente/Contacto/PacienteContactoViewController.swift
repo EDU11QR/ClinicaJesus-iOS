@@ -2,7 +2,7 @@
 //  PacienteContactoViewController.swift
 //  ClinicaJesus-iOS
 //
-//  Created by XCODE on 27/04/26.
+//  Created by Anthony on 30/04/26.
 //
 
 import UIKit
@@ -66,7 +66,7 @@ final class PacienteContactoViewController: UIViewController {
         label.textColor = .secondaryLabel
         return label
     }()
-    
+    			
     private let whatsappButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Enviar mensaje por WhatsApp", for: .normal)
@@ -107,6 +107,8 @@ final class PacienteContactoViewController: UIViewController {
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
         return button
     }()
+    
+    //  paciente1@gmail.com 123456
     
     override func viewDidLoad() {
         super.viewDidLoad()

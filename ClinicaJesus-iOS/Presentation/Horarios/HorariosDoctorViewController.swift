@@ -11,18 +11,69 @@ final class HorariosDoctorViewController: UIViewController {
     
     private let viewModel: HorariosDoctorViewModel
     
+    // MARK: - UI
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Mis Horarios"
+        label.font = .boldSystemFont(ofSize: 28)
+        return label
+    }()
+    
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Gestiona tu disponibilidad para atender pacientes"
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .secondaryLabel
+        return label
+    }()
+    
+    private let addButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("+  Agregar Horario", for: .normal)
+        btn.backgroundColor = .systemTeal
+        btn.setTitleColor(.white, for: .normal)
+        btn.layer.cornerRadius = 12
+        btn.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        return btn
+    }()
+    
+    private let cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 16
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.systemGray5.cgColor
+        return view
+    }()
+    
+    private let cardTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 18)
+        return label
+    }()
+    
+    private let headerStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
     private let tableView = UITableView()
-    private let loadingIndicator = UIActivityIndicatorView(style: .large)
-    private let emptyLabel = UILabel()
+    
+    private let loading = UIActivityIndicatorView(style: .large)
+    
+    // MARK: - Init
     
     init(viewModel: HorariosDoctorViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError() }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,73 +82,117 @@ final class HorariosDoctorViewController: UIViewController {
         viewModel.cargarHorarios()
     }
     
+    // MARK: - UI
+    
     private func setupUI() {
-        view.backgroundColor = .systemBackground
-        title = viewModel.title
+        view.backgroundColor = .systemGray6
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "HorarioDoctorCell")
+        addButton.addTarget(self, action: #selector(goToCreate), for: .touchUpInside)
+        
+        tableView.register(HorarioDoctorCell.self, forCellReuseIdentifier: HorarioDoctorCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 90
-        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         
-        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-        loadingIndicator.hidesWhenStopped = true
+        cardTitleLabel.text = "Horarios Registrados (0)"
         
-        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
-        emptyLabel.text = "No tienes horarios registrados."
-        emptyLabel.textAlignment = .center
-        emptyLabel.textColor = .secondaryLabel
-        emptyLabel.numberOfLines = 0
-        emptyLabel.isHidden = true
+        let fechaHeader = makeHeader("Fecha")
+        let inicioHeader = makeHeader("Hora Inicio")
+        let finHeader = makeHeader("Hora Fin")
         
-        view.addSubview(tableView)
-        view.addSubview(loadingIndicator)
-        view.addSubview(emptyLabel)
+        headerStack.addArrangedSubview(fechaHeader)
+        headerStack.addArrangedSubview(inicioHeader)
+        headerStack.addArrangedSubview(finHeader)
+        
+        [titleLabel, subtitleLabel, addButton, cardView, loading].forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        [cardTitleLabel, headerStack, tableView].forEach {
+            cardView.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
-            emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            emptyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            emptyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6),
+            subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            
+            addButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 16),
+            addButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            addButton.heightAnchor.constraint(equalToConstant: 44),
+            addButton.widthAnchor.constraint(equalToConstant: 180),
+            
+            cardView.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 20),
+            cardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            cardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            
+            cardTitleLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 16),
+            cardTitleLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16),
+            
+            headerStack.topAnchor.constraint(equalTo: cardTitleLabel.bottomAnchor, constant: 16),
+            headerStack.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16),
+            headerStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
+            
+            tableView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: 8),
+            tableView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
+            
+            loading.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loading.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
+    private func makeHeader(_ text: String) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = .boldSystemFont(ofSize: 13)
+        label.textColor = .secondaryLabel
+        return label
+    }
+    
+    // MARK: - Bindings
+    
     private func setupBindings() {
+        
         viewModel.onHorariosChanged = { [weak self] in
-            guard let self = self else { return }
-            self.emptyLabel.isHidden = !self.viewModel.horarios.isEmpty
+            guard let self else { return }
+            self.cardTitleLabel.text = "Horarios Registrados (\(self.viewModel.horarios.count))"
             self.tableView.reloadData()
         }
         
         viewModel.onLoadingChanged = { [weak self] isLoading in
-            guard let self = self else { return }
-            isLoading ? self.loadingIndicator.startAnimating() : self.loadingIndicator.stopAnimating()
+            guard let self else { return }
+            isLoading ? self.loading.startAnimating() : self.loading.stopAnimating()
         }
         
-        viewModel.onError = { [weak self] message in
-            self?.showAlert(title: "Error", message: message)
+        viewModel.onError = { [weak self] msg in
+            self?.showAlert(msg)
         }
         
         viewModel.onDesactivarSuccess = { [weak self] in
-            self?.showAlert(title: "Horario eliminado", message: "El horario fue desactivado correctamente.")
+            self?.showAlert("Horario desactivado correctamente")
         }
     }
     
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
+    // MARK: - Navigation
+    
+    @objc private func goToCreate() {
+        let vc = DependencyContainer.shared.makeCrearHorarioViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - Utils
+    
+    private func showAlert(_ msg: String) {
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default))
         present(alert, animated: true)
     }
@@ -109,25 +204,17 @@ extension HorariosDoctorViewController: UITableViewDataSource, UITableViewDelega
         viewModel.numberOfRows()
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        let horario = viewModel.horario(at: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HorarioDoctorCell", for: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var content = cell.defaultContentConfiguration()
-        content.text = "\(horario.fecha) | \(horario.horaInicio) - \(horario.horaFin)"
-        if horario.reservado {
-            content.secondaryText = "Reservado"
-        } else if horario.activo {
-            content.secondaryText = "Disponible"
-        } else {
-            content.secondaryText = "Inactivo"
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: HorarioDoctorCell.identifier,
+            for: indexPath
+        ) as? HorarioDoctorCell else {
+            return UITableViewCell()
         }
-        cell.contentConfiguration = content
-        cell.accessoryType = horario.activo ? .disclosureIndicator : .none
         
+        let horario = viewModel.horario(at: indexPath.row)
+        cell.configure(with: horario)
         return cell
     }
     
@@ -137,40 +224,41 @@ extension HorariosDoctorViewController: UITableViewDataSource, UITableViewDelega
         let horario = viewModel.horario(at: indexPath.row)
         
         if horario.reservado {
-            showAlert(
-                title: "No permitido",
-                message: "Este horario ya tiene una cita asociada y no puede desactivarse."
-            )
+            showAlert("Este horario está reservado y no puede modificarse.")
             return
         }
-
-        guard horario.activo else { return }
         
         let alert = UIAlertController(
-            title: "Horario",
+            title: "Gestionar horario",
             message: """
             Fecha: \(horario.fecha)
             Hora: \(horario.horaInicio) - \(horario.horaFin)
             """,
-            preferredStyle: .alert
+            preferredStyle: .actionSheet
         )
         
-        alert.addAction(UIAlertAction(title: "Desactivar horario", style: .destructive) { [weak self] _ in
-            self?.confirmarDesactivar(index: indexPath.row)
-        })
+        if horario.activo {
+            alert.addAction(UIAlertAction(title: "Desactivar horario", style: .destructive) { [weak self] _ in
+                self?.confirmarDesactivar(index: indexPath.row)
+            })
+        } else {
+            alert.addAction(UIAlertAction(title: "Activar horario", style: .default) { [weak self] _ in
+                self?.showAlert("Aún falta implementar activar horario en backend.")
+            })
+        }
         
-        alert.addAction(UIAlertAction(title: "Cerrar", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
         present(alert, animated: true)
     }
     
     private func confirmarDesactivar(index: Int) {
         let alert = UIAlertController(
-            title: "Confirmar",
+            title: "Confirmar desactivación",
             message: "¿Seguro que deseas desactivar este horario?",
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "No", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
         
         alert.addAction(UIAlertAction(title: "Sí, desactivar", style: .destructive) { [weak self] _ in
             self?.viewModel.desactivarHorario(at: index)

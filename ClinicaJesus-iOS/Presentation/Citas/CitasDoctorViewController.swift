@@ -11,7 +11,24 @@ final class CitasDoctorViewController: UIViewController {
     
     private let viewModel: CitasDoctorViewModel
     
-    private let tableView = UITableView()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Mis citas"
+        label.font = .boldSystemFont(ofSize: 30)
+        label.textColor = .label
+        return label
+    }()
+    
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Gestiona las citas asignadas a tu agenda"
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private let tableView = UITableView(frame: .zero, style: .plain)
     private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private let emptyLabel = UILabel()
     
@@ -21,7 +38,7 @@ final class CitasDoctorViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) no ha sido implementado")
     }
     
     override func viewDidLoad() {
@@ -32,35 +49,43 @@ final class CitasDoctorViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
         title = viewModel.title
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CitaDoctorCell")
+        tableView.register(CitaDoctorCell.self, forCellReuseIdentifier: CitaDoctorCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 120
-        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 135
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         
-        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator.hidesWhenStopped = true
         
-        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
         emptyLabel.text = "No tienes citas asignadas."
         emptyLabel.textAlignment = .center
         emptyLabel.textColor = .secondaryLabel
         emptyLabel.numberOfLines = 0
         emptyLabel.isHidden = true
         
-        view.addSubview(tableView)
-        view.addSubview(loadingIndicator)
-        view.addSubview(emptyLabel)
+        [titleLabel, subtitleLabel, tableView, loadingIndicator, emptyLabel].forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            
+            tableView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 18),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -73,13 +98,13 @@ final class CitasDoctorViewController: UIViewController {
     
     private func setupBindings() {
         viewModel.onCitasChanged = { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             self.emptyLabel.isHidden = !self.viewModel.citas.isEmpty
             self.tableView.reloadData()
         }
         
         viewModel.onLoadingChanged = { [weak self] isLoading in
-            guard let self = self else { return }
+            guard let self else { return }
             isLoading ? self.loadingIndicator.startAnimating() : self.loadingIndicator.stopAnimating()
         }
         
@@ -90,6 +115,40 @@ final class CitasDoctorViewController: UIViewController {
         viewModel.onEstadoChanged = { [weak self] in
             self?.showAlert(title: "Estado actualizado", message: "La cita fue actualizada correctamente.")
         }
+    }
+    
+    private func showDetalleCita(_ cita: CitaDoctor, index: Int) {
+        let alert = UIAlertController(
+            title: "Detalle de cita",
+            message: """
+            Paciente: \(cita.pacienteNombreCompleto)
+            Correo: \(cita.pacienteCorreo)
+            Fecha: \(cita.fecha)
+            Hora: \(cita.horaInicio) - \(cita.horaFin)
+            Estado actual: \(cita.estado)
+            Motivo: \(cita.motivo)
+            """,
+            preferredStyle: .actionSheet
+        )
+        
+        let estado = cita.estado.uppercased()
+        
+        if estado != "CANCELADA" && estado != "ATENDIDA" {
+            alert.addAction(UIAlertAction(title: "Marcar CONFIRMADA", style: .default) { [weak self] _ in
+                self?.viewModel.cambiarEstado(at: index, nuevoEstado: "CONFIRMADA")
+            })
+            
+            alert.addAction(UIAlertAction(title: "Marcar ATENDIDA", style: .default) { [weak self] _ in
+                self?.viewModel.cambiarEstado(at: index, nuevoEstado: "ATENDIDA")
+            })
+            
+            alert.addAction(UIAlertAction(title: "Marcar CANCELADA", style: .destructive) { [weak self] _ in
+                self?.viewModel.cambiarEstado(at: index, nuevoEstado: "CANCELADA")
+            })
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cerrar", style: .cancel))
+        present(alert, animated: true)
     }
     
     private func showAlert(title: String, message: String) {
@@ -113,56 +172,21 @@ extension CitasDoctorViewController: UITableViewDataSource, UITableViewDelegate 
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CitaDoctorCell.identifier,
+            for: indexPath
+        ) as? CitaDoctorCell else {
+            return UITableViewCell()
+        }
+        
         let cita = viewModel.cita(at: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CitaDoctorCell", for: indexPath)
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = "\(cita.pacienteNombreCompleto) - \(cita.estado)"
-        content.secondaryText = """
-        \(cita.fecha) | \(cita.horaInicio) - \(cita.horaFin)
-        Motivo: \(cita.motivo)
-        """
-        cell.contentConfiguration = content
-        
+        cell.configure(with: cita)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
         let cita = viewModel.cita(at: indexPath.row)
-        
-        let alert = UIAlertController(
-            title: "Detalle de cita",
-            message: """
-            Paciente: \(cita.pacienteNombreCompleto)
-            Correo: \(cita.pacienteCorreo)
-            Fecha: \(cita.fecha)
-            Hora: \(cita.horaInicio) - \(cita.horaFin)
-            Estado actual: \(cita.estado)
-            Motivo: \(cita.motivo)
-            """,
-            preferredStyle: .actionSheet
-        )
-        
-        let estado = cita.estado.uppercased()
-
-        if estado != "CANCELADA" && estado != "ATENDIDA" {
-            alert.addAction(UIAlertAction(title: "Marcar CONFIRMADA", style: .default) { [weak self] _ in
-                self?.viewModel.cambiarEstado(at: indexPath.row, nuevoEstado: "CONFIRMADA")
-            })
-            
-            alert.addAction(UIAlertAction(title: "Marcar ATENDIDA", style: .default) { [weak self] _ in
-                self?.viewModel.cambiarEstado(at: indexPath.row, nuevoEstado: "ATENDIDA")
-            })
-            
-            alert.addAction(UIAlertAction(title: "Marcar CANCELADA", style: .destructive) { [weak self] _ in
-                self?.viewModel.cambiarEstado(at: indexPath.row, nuevoEstado: "CANCELADA")
-            })
-        }
-        
-        alert.addAction(UIAlertAction(title: "Cerrar", style: .cancel))
-        
-        present(alert, animated: true)
+        showDetalleCita(cita, index: indexPath.row)
     }
 }

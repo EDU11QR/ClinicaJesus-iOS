@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		928A52AD2FA31E1800B28C8B /* PacienteContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A52AC2FA31E0E00B28C8B /* PacienteContactoViewController.swift */; };
+		928A52AF2FA3292900B28C8B /* MisCitaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A52AE2FA3292500B28C8B /* MisCitaCell.swift */; };
+		928A52B22FA3317200B28C8B /* CitaDoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A52B02FA32DDF00B28C8B /* CitaDoctorCell.swift */; };
+		928A52B42FA3321300B28C8B /* HorarioDoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A52B32FA3320C00B28C8B /* HorarioDoctorCell.swift */; };
 		AE01F4FE2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F4FD2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift */; };
 		AE01F5002F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F4FF2F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift */; };
 		AE01F5022F9EC73800670A6F /* AdminDoctorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01F5012F9EC73800670A6F /* AdminDoctorDTO.swift */; };
@@ -72,8 +76,6 @@
 		AE56B7602F9DA3170075EC19 /* AdminEspecialidadesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE56B75F2F9DA3170075EC19 /* AdminEspecialidadesViewController.swift */; };
 		AE56B7622F9DA37D0075EC19 /* AdminEspecialidadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE56B7612F9DA37D0075EC19 /* AdminEspecialidadCell.swift */; };
 		AE56B7642F9DAD9A0075EC19 /* GetCurrentUserSessionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE56B7632F9DAD9A0075EC19 /* GetCurrentUserSessionUseCase.swift */; };
-		AE7B08F92FA0459200212E3F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AE7B08F82FA0459200212E3F /* Algorithms */; };
-		AE7B08FD2FA0563300212E3F /* PacienteContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7B08FC2FA0563300212E3F /* PacienteContactoViewController.swift */; };
 		AE82EBF62F97239F00B52676 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82EBF32F97239F00B52676 /* DependencyContainer.swift */; };
 		AE82EBF72F97239F00B52676 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82EBF52F97239F00B52676 /* AppConfig.swift */; };
 		AED03FB12F9D92F600FD9D38 /* AdminObtenerUsuariosUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED03FB02F9D92F600FD9D38 /* AdminObtenerUsuariosUseCase.swift */; };
@@ -124,6 +126,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		928A52AC2FA31E0E00B28C8B /* PacienteContactoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacienteContactoViewController.swift; sourceTree = "<group>"; };
+		928A52AE2FA3292500B28C8B /* MisCitaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisCitaCell.swift; sourceTree = "<group>"; };
+		928A52B02FA32DDF00B28C8B /* CitaDoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitaDoctorCell.swift; sourceTree = "<group>"; };
+		928A52B32FA3320C00B28C8B /* HorarioDoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorarioDoctorCell.swift; sourceTree = "<group>"; };
 		AE01F4FD2F9EA35100670A6F /* AdminEditarUsuarioUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditarUsuarioUseCase.swift; sourceTree = "<group>"; };
 		AE01F4FF2F9EA85000670A6F /* AdminCambiarEstadoUsuarioUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCambiarEstadoUsuarioUseCase.swift; sourceTree = "<group>"; };
 		AE01F5012F9EC73800670A6F /* AdminDoctorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDoctorDTO.swift; sourceTree = "<group>"; };
@@ -189,7 +195,6 @@
 		AE56B75F2F9DA3170075EC19 /* AdminEspecialidadesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEspecialidadesViewController.swift; sourceTree = "<group>"; };
 		AE56B7612F9DA37D0075EC19 /* AdminEspecialidadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEspecialidadCell.swift; sourceTree = "<group>"; };
 		AE56B7632F9DAD9A0075EC19 /* GetCurrentUserSessionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentUserSessionUseCase.swift; sourceTree = "<group>"; };
-		AE7B08FC2FA0563300212E3F /* PacienteContactoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacienteContactoViewController.swift; sourceTree = "<group>"; };
 		AE82EBF32F97239F00B52676 /* DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		AE82EBF52F97239F00B52676 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		AED03FB02F9D92F600FD9D38 /* AdminObtenerUsuariosUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminObtenerUsuariosUseCase.swift; sourceTree = "<group>"; };
@@ -241,7 +246,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AED1CE182F9725D600B0F216 /* PostgREST in Frameworks */,
-				AE7B08F92FA0459200212E3F /* Algorithms in Frameworks */,
 				AED1CE162F9725D600B0F216 /* Functions in Frameworks */,
 				AED1CE1F2F9726BF00B0F216 /* Supabase in Frameworks */,
 				AED1CE142F9725D600B0F216 /* Auth in Frameworks */,
@@ -253,6 +257,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		928A52AA2FA31DE600B28C8B /* Paciente */ = {
+			isa = PBXGroup;
+			children = (
+				928A52AB2FA31DF000B28C8B /* Contacto */,
+			);
+			path = Paciente;
+			sourceTree = "<group>";
+		};
+		928A52AB2FA31DF000B28C8B /* Contacto */ = {
+			isa = PBXGroup;
+			children = (
+				928A52AC2FA31E0E00B28C8B /* PacienteContactoViewController.swift */,
+			);
+			path = Contacto;
+			sourceTree = "<group>";
+		};
 		AE0AEF5C2F9D7F5C0069BCA2 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,22 +311,6 @@
 				AE56B7612F9DA37D0075EC19 /* AdminEspecialidadCell.swift */,
 			);
 			path = Especialidades;
-			sourceTree = "<group>";
-		};
-		AE7B08FA2FA0561000212E3F /* Paciente */ = {
-			isa = PBXGroup;
-			children = (
-				AE7B08FB2FA0561800212E3F /* Contacto */,
-			);
-			path = Paciente;
-			sourceTree = "<group>";
-		};
-		AE7B08FB2FA0561800212E3F /* Contacto */ = {
-			isa = PBXGroup;
-			children = (
-				AE7B08FC2FA0563300212E3F /* PacienteContactoViewController.swift */,
-			);
-			path = Contacto;
 			sourceTree = "<group>";
 		};
 		AE82EBF12F97239F00B52676 /* App */ = {
@@ -488,7 +492,7 @@
 		AED1CDFB2F97245C00B0F216 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				AE7B08FA2FA0561000212E3F /* Paciente */,
+				928A52AA2FA31DE600B28C8B /* Paciente */,
 				AE0AEF672F9D89C90069BCA2 /* Admin */,
 				AE0AEF5C2F9D7F5C0069BCA2 /* Splash */,
 				AED1CDFE2F97245C00B0F216 /* Auth */,
@@ -572,6 +576,9 @@
 		AED1CE0A2F97245C00B0F216 /* Citas */ = {
 			isa = PBXGroup;
 			children = (
+				928A52B32FA3320C00B28C8B /* HorarioDoctorCell.swift */,
+				928A52B02FA32DDF00B28C8B /* CitaDoctorCell.swift */,
+				928A52AE2FA3292500B28C8B /* MisCitaCell.swift */,
 				AE4D323B2F9C4BCC007BDC77 /* ConfirmarCitaViewModel.swift */,
 				AE4D323D2F9C4BEB007BDC77 /* ConfirmarCitaViewController.swift */,
 				AE4D324F2F9C5278007BDC77 /* MisCitasViewModel.swift */,
@@ -647,7 +654,6 @@
 				AED1CE192F9725D600B0F216 /* Realtime */,
 				AED1CE1B2F9725D600B0F216 /* Storage */,
 				AED1CE1E2F9726BF00B0F216 /* Supabase */,
-				AE7B08F82FA0459200212E3F /* Algorithms */,
 			);
 			productName = "ClinicaJesus-iOS";
 			productReference = AEF45E7D2F96FC4A00D80EDF /* ClinicaJesus-iOS.app */;
@@ -679,8 +685,6 @@
 			mainGroup = AEF45E742F96FC4A00D80EDF;
 			packageReferences = (
 				AED1CE122F9725D600B0F216 /* XCRemoteSwiftPackageReference "supabase-swift" */,
-				AE7B08F72FA0459200212E3F /* XCRemoteSwiftPackageReference "swift-algorithms" */,
-				AE7B08FE2FA0580B00212E3F /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
 			);
 			productRefGroup = AEF45E7E2F96FC4A00D80EDF /* Products */;
 			projectDirPath = "";
@@ -718,6 +722,7 @@
 				AED03FB62F9D95E400FD9D38 /* AdminMenuButton.swift in Sources */,
 				AE4D326E2F9C66DE007BDC77 /* HorarioDoctorMapper.swift in Sources */,
 				AE4D323C2F9C4BCC007BDC77 /* ConfirmarCitaViewModel.swift in Sources */,
+				928A52B42FA3321300B28C8B /* HorarioDoctorCell.swift in Sources */,
 				AE01F5062F9EC78100670A6F /* AdminDoctorMapper.swift in Sources */,
 				AE4D324E2F9C5236007BDC77 /* GetMyAppointmentsUseCase.swift in Sources */,
 				AED1CDF72F97245700B0F216 /* UsuarioMapper.swift in Sources */,
@@ -748,11 +753,13 @@
 				AED1CE0D2F97245C00B0F216 /* LoginViewController.swift in Sources */,
 				AE4D32522F9C528F007BDC77 /* MisCitasViewController.swift in Sources */,
 				AE56B7602F9DA3170075EC19 /* AdminEspecialidadesViewController.swift in Sources */,
+				928A52B22FA3317200B28C8B /* CitaDoctorCell.swift in Sources */,
 				AED1CDF12F97245700B0F216 /* SupabaseClientProvider.swift in Sources */,
 				AE4D32542F9C557C007BDC77 /* CancelAppointmentUseCase.swift in Sources */,
 				AED1CDF02F97245700B0F216 /* CatalogRepository.swift in Sources */,
 				AED1CDD72F97243300B0F216 /* GetDoctorsBySpecialtyUseCase.swift in Sources */,
 				AE0AEF6A2F9D8A010069BCA2 /* AdminUsuariosViewModel.swift in Sources */,
+				928A52AF2FA3292900B28C8B /* MisCitaCell.swift in Sources */,
 				AE237B4C2FA039EE00A468E5 /* CustomTextField.swift in Sources */,
 				AE4D324A2F9C516C007BDC77 /* AppointmentDTO.swift in Sources */,
 				AE4D32742F9C679A007BDC77 /* HorariosDoctorViewModel.swift in Sources */,
@@ -799,7 +806,7 @@
 				AE56B75B2F9DA1BB0075EC19 /* AdminEditarEspecialidadUseCase.swift in Sources */,
 				AE4D32622F9C5B60007BDC77 /* CambiarEstadoCitaDoctorUseCase.swift in Sources */,
 				AED1CDEE2F97245700B0F216 /* UserRepository.swift in Sources */,
-				AE7B08FD2FA0563300212E3F /* PacienteContactoViewController.swift in Sources */,
+				928A52AD2FA31E1800B28C8B /* PacienteContactoViewController.swift in Sources */,
 				AE4D32682F9C5F46007BDC77 /* CrearHorarioViewController.swift in Sources */,
 				AE237B512FA03B0100A468E5 /* PacienteDoctorCell.swift in Sources */,
 				AE4D32462F9C4E58007BDC77 /* ReserveAppointmentUseCase.swift in Sources */,
@@ -967,7 +974,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ClinicaJesus-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -994,7 +1001,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ClinicaJesus-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1035,22 +1042,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AE7B08F72FA0459200212E3F /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-algorithms.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
-			};
-		};
-		AE7B08FE2FA0580B00212E3F /* XCRemoteSwiftPackageReference "ios-maps-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googlemaps/ios-maps-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.12.0;
-			};
-		};
 		AED1CE122F9725D600B0F216 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/supabase/supabase-swift";
@@ -1062,11 +1053,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AE7B08F82FA0459200212E3F /* Algorithms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AE7B08F72FA0459200212E3F /* XCRemoteSwiftPackageReference "swift-algorithms" */;
-			productName = Algorithms;
-		};
 		AED1CE132F9725D600B0F216 /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AED1CE122F9725D600B0F216 /* XCRemoteSwiftPackageReference "supabase-swift" */;
